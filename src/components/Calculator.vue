@@ -18,8 +18,8 @@
     <div @click="append($event,'3')" class="btn">3</div>
     <div @click="add" class="btn operator">+</div>
     <div @click="append($event,'0')" class="btn zero">0</div>
-    <div @click="dot" class="btn">.</div>
-    <div @click="equal" class="btn operator submit">=</div>
+    <div @click="dot($event)" class="btn">.</div>
+    <div @click="equal($event)" class="btn operator submit">=</div>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
     return {
       previous: null,
       current: "",
-      operator: null,
+      operator: () => this.current,
       operatorClicked: false,
       isActive: false
     };
@@ -58,7 +58,7 @@ export default {
       this.current = `${parseFloat(this.current) / 100}`;
     },
     append(event, number) {
-      // this.toggleButton(event.target);
+      event.target ? this.toggleButton(event.target): void 0;
       this.isActive = !this.isActive;
       if (this.operatorClicked) {
         this.current = "";
@@ -73,7 +73,7 @@ export default {
       }
     },
     setPrevious() {
-      this.toggleButton(event.target);
+      // this.toggleButton(event.target);
       this.previous = this.current;
       this.operatorClicked = true;
     },
@@ -82,7 +82,7 @@ export default {
       this.operator = (a, b) => a / b;
       this.setPrevious();
     },
-    times() {ы
+    times() {
       this.toggleButton(event.target);
       this.operator = (a, b) => a * b;
       this.setPrevious();
