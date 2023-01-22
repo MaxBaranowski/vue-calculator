@@ -1,6 +1,8 @@
 # vue-calculator
 
 ## Project setup
+<img width="373" alt="Screenshot 2023-01-22 at 21 51 59" src="https://user-images.githubusercontent.com/17856507/213939778-f468716b-5869-4f43-b802-77bb2c56c277.png">
+
 ```
 npm install
 ```
